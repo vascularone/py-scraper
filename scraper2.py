@@ -113,14 +113,7 @@ def scrape_data(url):
         driver.quit()
 
 if __name__ == "__main__":
-    urls_to_scrape = [
-        "https://www.hypedrop.com/en/boxes/eu/list/",
-        "https://www.hypedrop.com/en/boxes/eu/list/hot",
-        "https://www.hypedrop.com/en/boxes/eu/list/updated",
-        "https://www.hypedrop.com/en/boxes/eu/list/streetwear",
-        "https://www.hypedrop.com/en/boxes/eu/list/tech",
-        "https://www.hypedrop.com/en/boxes/eu/list/gaming"
-    ]
+    urls_to_scrape = []
 
     with ProcessPoolExecutor(max_workers=3) as executor:
         futures = {executor.submit(scrape_data, url): url for url in urls_to_scrape}
